@@ -27,7 +27,7 @@ moz-clone() {
 moz-dir() {
   repo=$1
   directories=$(find ~/work -maxdepth 2 -type d -name $repo)
-  if test $(echo -n $directories | wc -l) -eq 1 ; then
+  if test $(echo "${directories[@]}" | wc -l) -eq 1 ; then
     cd $directories
   else
     echo "multiple directories found for $repo. Select desired location:"
