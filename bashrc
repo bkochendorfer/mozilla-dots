@@ -24,5 +24,22 @@ moz-clone() {
   done
 }
 
+moz-dir() {
+  repo=$1
+  directories=$(find ~/work -maxdepth 2 -type d -name $repo)
+  if test $(echo -n $directories | wc -l) -eq 1 ; then
+    cd $directories
+  else
+    echo "multiple directories found for $repo. Select desired location:"
+    select dir in $(echo -n $directories); do
+      case $dir in
+        *) cd $dir;
+          break ;;
+      esac
+    done
+  fi
+}
+
 alias mc=moz-clone
 alias cw="cd ~/work/"
+alias m=moz-dir
