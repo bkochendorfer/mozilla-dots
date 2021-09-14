@@ -1,7 +1,7 @@
 # Helper function to clone into local directory without knowing the org the repo lives in
 moz-clone() {
   repo=$1
-  for org in mozilla-it mozilla-services mozilla mozilla-iam mozmeao mdn; do
+  for org in mozilla-it mozilla-services mozilla mozilla-iam mozmeao mdn pocket; do
     if ls ~/work/$org/$repo > /dev/null 2>&1 ; then
       echo "Repo $repo already checked out, changing directories"
       cd ~/work/$org/$repo
